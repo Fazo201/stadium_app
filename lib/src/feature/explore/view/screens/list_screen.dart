@@ -15,10 +15,10 @@ class ListScreen extends StatefulWidget {
 
 class _ListScreenState extends State<ListScreen> {
   ApiServer apiServer = ApiServer(Dio());
-  List<StadiumModel?>? stadiumModel;
+  List<StadiumModel?>? stadiums;
 
   Future<void> fetchData()async{
-    stadiumModel = await apiServer.getStadiumInfo();
+    stadiums = await apiServer.getStadiumInfo();
     setState(() {});
   }
 
@@ -39,13 +39,13 @@ class _ListScreenState extends State<ListScreen> {
           return 10.verticalSpace;
         },
         itemBuilder: (BuildContext context, int index) {
-          if (stadiumModel != null) {
+          if (stadiums != null) {
             return CustomExploreListCardWidget(
-              imageUrl: stadiumModel?[index]?.image ?? "https://i.ibb.co/khh3NYM/image.png",
-              isAvailable: stadiumModel?[index]?.isAvailable ?? false,
-              name: stadiumModel?[index]?.name ?? "",
-              address: stadiumModel?[index]?.address?? "",
-              pricePerHour: "${stadiumModel?[index]?.pricePerHour ?? "***"} uzs/hour",
+              imageUrl: stadiums?[index]?.image ?? "https://i.ibb.co/khh3NYM/image.png",
+              isAvailable: stadiums?[index]?.isAvailable ?? false,
+              name: stadiums?[index]?.name ?? "",
+              address: stadiums?[index]?.address?? "",
+              pricePerHour: "${stadiums?[index]?.pricePerHour ?? "***"} uzs/hour",
               isAvailableOnPressed: () {},
               bookNowOnPressed: () {},
               locationOnPressed: () {},
@@ -65,7 +65,7 @@ class _ListScreenState extends State<ListScreen> {
             );
           }
         },
-        itemCount: stadiumModel?.length??5,
+        itemCount: stadiums?.length??5,
       ),
     );
   }

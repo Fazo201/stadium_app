@@ -1,13 +1,18 @@
 import 'dart:async';
 import 'dart:developer';
+import 'dart:math' as math;
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
+import 'package:maplibre_gl_platform_interface/maplibre_gl_platform_interface.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:flutter_compass/flutter_compass.dart';
 import 'package:stadium_project/gen/assets.gen.dart';
+import 'package:stadium_project/src/core/server/api/api_server.dart';
+import 'package:stadium_project/src/data/model/stadium_model.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -22,13 +27,49 @@ class _MapScreenState extends State<MapScreen> {
   LatLng? _currentPosition;
   Symbol? _currentLocationSymbolId;
   double _deviceDirection = 0.0;
-
   StreamSubscription<CompassEvent>? _compassSubscription;
+
+  ApiServer apiServer = ApiServer(Dio());
+  List<StadiumModel?>? stadiums;
+
+  Symbol? idLocations;
+  final Map<String, StadiumModel> symbolStadiumMap = {};
+
+  Future<void> _fetchStadiums() async {
+    log("_fetchStadiums");
+    try {
+      stadiums = await apiServer.getStadiumInfo();
+
+      if (_mapController != null && stadiums != null) {
+        for (var stadium in stadiums!) {
+          if (stadium != null && stadium.longitude != null && stadium.latitude != null) {
+            idLocations = await _mapController!.addSymbol(
+              SymbolOptions(
+                geometry: LatLng(stadium.longitude!, stadium.latitude!),
+                iconImage: Assets.images.mapPointStadiumIcon.path,
+                iconSize: 2.5,
+                textOffset: const Offset(0, 1.5),
+              ),
+            );
+
+            symbolStadiumMap[idLocations!.id] = stadium;
+            log("idLocations: ${idLocations!.id}");
+          }
+        }
+      }
+      symbolStadiumMap.keys.forEach((key) {
+        log("forEAch: $key"); 
+      });
+      setState(() {});
+    } catch (e) {
+      log("Stadion ma'lumotlarini olishda xatolik: $e");
+    }
+  }
 
   @override
   void initState() {
     super.initState();
-    _requestLocationPermission();
+    // _requestLocationPermission();
     // _listenToCompass();
   }
 
@@ -82,6 +123,7 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   Future<void> _showCurrentLocation() async {
+    log("_showCurrentLocation");
     try {
       Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
       log("Текущее местоположение: ${position.latitude}, ${position.longitude}");
@@ -121,7 +163,7 @@ class _MapScreenState extends State<MapScreen> {
             CameraUpdate.newCameraPosition(
               CameraPosition(
                 target: LatLng(position.latitude, position.longitude),
-                zoom: 15.0,
+                zoom: 12,
               ),
             ),
           );
@@ -157,23 +199,37 @@ class _MapScreenState extends State<MapScreen> {
         initialCameraPosition: _currentPosition != null
             ? CameraPosition(
                 target: _currentPosition!,
-                zoom: 15,
+                zoom: 12,
               )
             : const CameraPosition(
                 target: LatLng(41.316441, 69.294861),
-                zoom: 15,
+                zoom: 12,
               ),
         onMapCreated: (MaplibreMapController controller) {
           if (mounted) {
-            setState(() {
+            // setState(() {
               _mapController = controller;
-              log(_mapController != null ? "controller installed" : "controller null");
 
-              if (_isLocationEnabled) {
-                _showCurrentLocation();
-              }
-            });
+              // if (_isLocationEnabled) {
+              //   _showCurrentLocation();
+              // }
+              _fetchStadiums();
+            // });
           }
+          _mapController!.onSymbolTapped.add((symbol) {
+            log(symbol.id);
+            log(symbolStadiumMap.containsKey(symbol.id).toString());
+            if (symbolStadiumMap.containsKey(symbol.id)) {
+              final stadium = symbolStadiumMap[symbol.id];
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(
+                    'Name: ${stadium?.name}\nAddress: ${stadium?.address}\nPrice: ${stadium?.pricePerHour} uzs/hour',
+                  ),
+                ),
+              );
+            }
+          });
         },
       ),
       floatingActionButton: FloatingActionButton(
