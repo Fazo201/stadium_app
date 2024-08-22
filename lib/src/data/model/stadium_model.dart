@@ -1,9 +1,7 @@
-import 'dart:convert';
+import 'package:json_annotation/json_annotation.dart';
+part 'stadium_model.g.dart';
 
-List<StadiumModel> stadiumModelFromJson(String str) => List<StadiumModel>.from(json.decode(str).map((x) => StadiumModel.fromJson(x)));
-
-String stadiumModelToJson(List<StadiumModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
-
+@JsonSerializable()
 class StadiumModel {
     final String? name;
     final String? image;
@@ -25,25 +23,7 @@ class StadiumModel {
         this.id,
     });
 
-    factory StadiumModel.fromJson(Map<String, dynamic> json) => StadiumModel(
-        name: json["name"],
-        image: json["image"],
-        address: json["address"],
-        pricePerHour: json["pricePerHour"],
-        longitude: json["longitude"]?.toDouble(),
-        latitude: json["latitude"]?.toDouble(),
-        isAvailable: json["isAvailable"],
-        id: json["id"],
-    );
+    factory StadiumModel.fromJson(Map<String, dynamic> json) => _$StadiumModelFromJson(json);
 
-    Map<String, dynamic> toJson() => {
-        "name": name,
-        "image": image,
-        "address": address,
-        "pricePerHour": pricePerHour,
-        "longitude": longitude,
-        "latitude": latitude,
-        "isAvailable": isAvailable,
-        "id": id,
-    };
+    Map<String, dynamic> toJson() => _$StadiumModelToJson(this);
 }

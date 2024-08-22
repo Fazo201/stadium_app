@@ -29,7 +29,7 @@ class _MapScreenState extends State<MapScreen> {
   void initState() {
     super.initState();
     _requestLocationPermission();
-    _listenToCompass();
+    // _listenToCompass();
   }
 
   @override

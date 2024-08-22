@@ -1,8 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:stadium_project/src/core/server/api/api_server.dart';
 import 'package:stadium_project/src/data/model/stadium_model.dart';
-import 'package:stadium_project/src/data/repository/app_repository_impl.dart';
 import 'package:stadium_project/src/feature/explore/view/widgets/custom_explore_list_card_widget.dart';
 
 class ListScreen extends StatefulWidget {
@@ -13,11 +14,11 @@ class ListScreen extends StatefulWidget {
 }
 
 class _ListScreenState extends State<ListScreen> {
-  AppRepositoryImpl repositoryImpl = AppRepositoryImpl();
+  ApiServer apiServer = ApiServer(Dio());
   List<StadiumModel?>? stadiumModel;
 
   Future<void> fetchData()async{
-    stadiumModel = await repositoryImpl.getStadiumInfo();
+    stadiumModel = await apiServer.getStadiumInfo();
     setState(() {});
   }
 
