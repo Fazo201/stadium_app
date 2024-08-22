@@ -21,7 +21,7 @@ final class AppThemes {
         lightTheme = ThemeData(
           brightness: Brightness.light,
           colorScheme: lightColorScheme,
-          scaffoldBackgroundColor: AppColors.c121212,
+          scaffoldBackgroundColor: AppColors.white,
           textTheme: const AppTextStyle(),
         );
 

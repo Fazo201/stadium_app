@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
-import "package:stadium_project/src/core/style/app_colors.dart";
+import "package:stadium_project/gen/fonts.gen.dart";
 
 @immutable
 class AppTextStyle extends TextTheme {
@@ -11,8 +11,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w300,
         fontSize: FontSize.size96,
         letterSpacing: -1.5,
-        fontFamily: "Gilroy",
-        color: AppColors.white,
+        fontFamily: FontFamily.gilroy,
       );
 
   @override
@@ -20,8 +19,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w300,
         fontSize: FontSize.size60,
         letterSpacing: -0.5,
-        fontFamily: "Gilroy",
-        color: AppColors.white,
+        fontFamily: FontFamily.gilroy,
       );
 
   @override
@@ -29,8 +27,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size48,
         letterSpacing: 0,
-        fontFamily: "Gilroy",
-        color: AppColors.white,
+        fontFamily: FontFamily.gilroy,
       );
 
   @override
@@ -38,8 +35,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size34,
         letterSpacing: 0.25,
-        fontFamily: "Gilroy",
-        color: AppColors.white,
+        fontFamily: FontFamily.gilroy,
       );
 
   @override
@@ -47,8 +43,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size24,
         letterSpacing: 0,
-        fontFamily: "Gilroy",
-        color: AppColors.white,
+        fontFamily: FontFamily.gilroy,
       );
 
   @override
@@ -56,8 +51,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size20,
         letterSpacing: 0.15,
-        fontFamily: "Gilroy",
-        color: AppColors.white,
+        fontFamily: FontFamily.gilroy,
       );
 
   @override
@@ -65,8 +59,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size16,
         letterSpacing: 0.15,
-        fontFamily: "Gilroy",
-        color: AppColors.white,
+        fontFamily: FontFamily.gilroy,
       );
 
   @override
@@ -74,8 +67,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size14,
         letterSpacing: 0.1,
-        fontFamily: "Gilroy",
-        color: AppColors.white,
+        fontFamily: FontFamily.gilroy,
       );
 
   @override
@@ -83,8 +75,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size16,
         letterSpacing: 0.5,
-        fontFamily: "Gilroy",
-        color: AppColors.white,
+        fontFamily: FontFamily.gilroy,
       );
 
   @override
@@ -92,8 +83,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size14,
         letterSpacing: 0.25,
-        fontFamily: "Gilroy",
-        color: AppColors.white,
+        fontFamily: FontFamily.gilroy,
       );
 
   @override
@@ -101,8 +91,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size12,
         letterSpacing: 0.4,
-        fontFamily: "Gilroy",
-        color: AppColors.white,
+        fontFamily: FontFamily.gilroy,
       );
 
   @override
@@ -110,8 +99,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size14,
         letterSpacing: 1.25,
-        fontFamily: "Gilroy",
-        color: AppColors.white,
+        fontFamily: FontFamily.gilroy,
       );
 
   @override
@@ -119,8 +107,7 @@ class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size10,
         letterSpacing: 1.5,
-        fontFamily: "Gilroy",
-        color: AppColors.white,
+        fontFamily: FontFamily.gilroy,
       );
 }
 
