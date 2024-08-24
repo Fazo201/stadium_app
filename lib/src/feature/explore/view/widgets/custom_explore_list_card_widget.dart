@@ -3,24 +3,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stadium_project/gen/assets.gen.dart';
 import 'package:stadium_project/src/core/style/app_colors.dart';
 import 'package:stadium_project/src/core/style/text_style.dart';
+import 'package:stadium_project/src/data/model/stadium_model.dart';
 
 class CustomExploreListCardWidget extends StatelessWidget {
   const CustomExploreListCardWidget({
     super.key,
-    required this.imageUrl,
-    required this.isAvailable,
-    required this.name,
-    required this.address,
-    required this.pricePerHour,
+    required this.stadiumModel,
     this.isAvailableOnPressed,
     this.bookNowOnPressed,
     this.locationOnPressed,
   });
-  final String imageUrl;
-  final bool isAvailable;
-  final String name;
-  final String address;
-  final String pricePerHour;
+  final StadiumModel? stadiumModel;
   final void Function()? isAvailableOnPressed;
   final void Function()? bookNowOnPressed;
   final void Function()? locationOnPressed;
@@ -34,6 +27,7 @@ class CustomExploreListCardWidget extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           border: Border.all(color: AppColors.cEDEDED),
+          color: Colors.white
         ),
         child: Row(
           children: [
@@ -48,7 +42,7 @@ class CustomExploreListCardWidget extends StatelessWidget {
                         left: Radius.circular(12),
                       ),
                       image: DecorationImage(
-                        image: NetworkImage(imageUrl),
+                        image: NetworkImage(stadiumModel?.image ?? "https://i.ibb.co/khh3NYM/image.png"),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -65,10 +59,10 @@ class CustomExploreListCardWidget extends StatelessWidget {
                       style: ButtonStyle(
                         padding: const WidgetStatePropertyAll(EdgeInsets.zero),
                         backgroundColor: WidgetStatePropertyAll(
-                          isAvailable ? const Color(0xff2AA64C) : const Color.fromRGBO(255, 218, 105, 1),
+                          stadiumModel?.isAvailable??false ? const Color(0xff2AA64C) : const Color.fromRGBO(255, 218, 105, 1),
                         ),
                       ),
-                      child: Text(isAvailable ? "Working" : "Closed"),
+                      child: Text(stadiumModel?.isAvailable ==true ? "Working" : "Closed"),
                     ),
                   ),
                 ):const SizedBox(),
@@ -82,15 +76,15 @@ class CustomExploreListCardWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      name,
+                      stadiumModel?.name??"",
                       style: const AppTextStyle().bodyLarge?.copyWith(color: AppColors.c181725,height: 1.1),
                     ),
                     Text(
-                      address,
+                      stadiumModel?.address??"",
                       style: const AppTextStyle().bodyMedium?.copyWith(color: AppColors.cB2B2B2,height: 1, fontFamily: ""),
                     ),
                     Text(
-                      pricePerHour,
+                      stadiumModel?.pricePerHour.toString()??"",
                       style: const AppTextStyle().bodyLarge?.copyWith(color: AppColors.c2AA64C,height: 1,fontFamily: ""),
                     ),
                     Row(

@@ -1,9 +1,9 @@
 import "package:flutter/cupertino.dart";
 import "package:go_router/go_router.dart";
 import "package:stadium_project/src/core/routes/app_route_names.dart";
-import "package:stadium_project/src/feature/account/account_screen.dart";
+import "package:stadium_project/src/feature/account/view/account_screen.dart";
 import "package:stadium_project/src/feature/explore/view/screens/explore_screen.dart";
-import "package:stadium_project/src/feature/favourite/favourite_screen.dart";
+import "package:stadium_project/src/feature/favourite/view/favourite_screen.dart";
 import "package:stadium_project/src/feature/main/view/screens/primary_screen.dart";
 
 
