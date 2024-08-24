@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stadium_project/gen/assets.gen.dart';
+import 'package:stadium_project/src/core/constants/context_extension.dart';
 import 'package:stadium_project/src/core/style/app_colors.dart';
 import 'package:stadium_project/src/core/style/text_style.dart';
 import 'package:stadium_project/src/data/model/stadium_model.dart';
@@ -26,8 +27,8 @@ class CustomExploreListCardWidget extends StatelessWidget {
       child: DecoratedBox(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: AppColors.cEDEDED),
-          color: Colors.white
+          border: Border.all(color: context.theme.colorScheme.outline),
+          color: context.theme.colorScheme.surfaceContainer
         ),
         child: Row(
           children: [
@@ -62,7 +63,7 @@ class CustomExploreListCardWidget extends StatelessWidget {
                           stadiumModel?.isAvailable??false ? const Color(0xff2AA64C) : const Color.fromRGBO(255, 218, 105, 1),
                         ),
                       ),
-                      child: Text(stadiumModel?.isAvailable ==true ? "Working" : "Closed"),
+                      child: Text(stadiumModel?.isAvailable ==true ? "Working" : "Closed",style: TextStyle(color: stadiumModel?.isAvailable ==true?AppColors.white:AppColors.black),),
                     ),
                   ),
                 ):const SizedBox(),

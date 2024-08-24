@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stadium_project/gen/assets.gen.dart';
-import 'package:stadium_project/src/core/style/app_colors.dart';
 import 'package:stadium_project/src/feature/main/view_model/primary_vm.dart';
 
 class PrimaryScreen extends ConsumerWidget {
@@ -20,10 +19,6 @@ class PrimaryScreen extends ConsumerWidget {
           onTap: (index) {
             ref.read(primaryVM.notifier).changeNavigation(context, index);
           },
-          selectedLabelStyle: TextStyle(fontSize: 12.sp),
-          selectedItemColor: AppColors.c2AA64C,
-          unselectedItemColor: AppColors.c181725,
-          backgroundColor: Colors.white,
           currentIndex: currentIndex,
           type: BottomNavigationBarType.fixed,
           items: [
@@ -46,33 +41,6 @@ class PrimaryScreen extends ConsumerWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildNavItem({
-    required Widget icon,
-    required Widget activeIcon,
-    required String label,
-    required bool isActive,
-    required VoidCallback onTap,
-  }) {
-    return InkWell(
-      onTap: onTap,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          isActive ? activeIcon : icon,
-          SizedBox(height: 4.h),
-          Text(
-            label,
-            style: TextStyle(
-              fontSize: 12.sp,
-              color: isActive ? AppColors.c2AA64C : AppColors.c181725,
-            ),
-          ),
-        ],
       ),
     );
   }

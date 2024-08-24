@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stadium_project/gen/assets.gen.dart';
+import 'package:stadium_project/src/core/constants/context_extension.dart';
 import 'package:stadium_project/src/core/style/text_style.dart';
 import 'package:stadium_project/src/feature/explore/view/screens/list_screen.dart';
 import 'package:stadium_project/src/feature/explore/view/screens/map_screen.dart';
@@ -31,8 +32,6 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        surfaceTintColor: Colors.white,
-        shadowColor: const Color(0x1F767680),
         elevation: 6,
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(60.h),
@@ -46,19 +45,19 @@ class _ExploreScreenState extends State<ExploreScreen> with SingleTickerProvider
               bottom: 3,
             ),
             decoration: BoxDecoration(
-              color: const Color(0x1F767680),
+              color: context.theme.colorScheme.secondaryContainer,
               borderRadius: BorderRadius.circular(8.r),
             ),
             child: TabBar(
               controller: _tabController,
               indicator: BoxDecoration(
-                color: const Color(0xffFFFFFF),
+                color: context.theme.colorScheme.surface,
                 borderRadius: BorderRadius.circular(7.r),
-                border: Border.all(width: 0.5.r, color: const Color.fromRGBO(0, 0, 0, 0.04)),
-                boxShadow: const [
+                border: Border.all(width: 0.5.r, color: context.theme.colorScheme.outline),
+                boxShadow: [
                   BoxShadow(
-                    color: Color.fromRGBO(0, 0, 0, 0.12),
-                    offset: Offset(
+                    color: context.theme.colorScheme.outline,
+                    offset: const Offset(
                       0.0,
                       1.0,
                     ),
