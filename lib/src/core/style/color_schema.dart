@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart' show ColorScheme, Brightness, Color;
+import 'package:flutter/material.dart' show Brightness, Color, ColorScheme, Colors;
 
 const ColorScheme lightColorScheme = ColorScheme(
   brightness: Brightness.light,
@@ -8,11 +8,12 @@ const ColorScheme lightColorScheme = ColorScheme(
   primaryContainer: Color.fromRGBO(0, 170, 91, 1),
   secondary: Color.fromRGBO(24, 23, 37, 1),
   secondaryContainer: Color.fromRGBO(118, 118, 128, 0.12), 
+  onSecondaryContainer: Color(0xff181725),
   surface: Color.fromRGBO(255, 255, 255, 1), 
   onSurface: Color.fromRGBO(24, 23, 37, 1),
   surfaceBright: Color.fromRGBO(178, 178, 178, 1),
   outline: Color.fromRGBO(0, 0, 0, 0.04), 
-  shadow: Color.fromRGBO(96, 132, 118, 0.2),
+  shadow: Color.fromRGBO(255, 255, 255, 1),
 
 
   surfaceDim: Color(0xFF000000), 
@@ -55,12 +56,14 @@ const ColorScheme lightColorScheme = ColorScheme(
 const ColorScheme darkColorScheme = ColorScheme(
   brightness: Brightness.dark,
 
-  primary: Color(0xFF2ec866), ///2ec866 For main components on UI!
-  onPrimary: Color(0xFF121418), ///121418 For items ex. icons, texts on main components on UI!
-  secondary: Color(0xFFa47618), ///a47618
-  secondaryContainer: Color(0xFFFFAD30), ///FFAD30
-  surface: Color(0xFF121418), ///121418 For backgrounds of (Scaffold, app, ...).
-  onSurface: Color.fromRGBO(24, 23, 37, 1),
+  primary: Color(0xFF2ec866), 
+  onPrimary: Color(0xFF121418), 
+  secondary: Color(0xFFa47618), 
+  secondaryContainer: Color.fromARGB(255, 92, 102, 121),
+  onSecondaryContainer: Color(0xfff3e6e2),
+  surface: Color.fromARGB(255, 34, 40, 52), 
+  onSurface: Colors.grey,
+  shadow: Color.fromARGB(255, 157, 157, 157),
 
   ///Don't need ones!!!
   onSecondary: Color(0xff141210),

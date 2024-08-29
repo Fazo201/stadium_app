@@ -1,11 +1,7 @@
 import "package:flutter/cupertino.dart";
 import "package:go_router/go_router.dart";
 import "package:stadium_project/src/core/routes/app_route_names.dart";
-import "package:stadium_project/src/feature/account/view/account_screen.dart";
-import "package:stadium_project/src/feature/explore/view/screens/explore_screen.dart";
-import "package:stadium_project/src/feature/favourite/view/favourite_screen.dart";
-import "package:stadium_project/src/feature/main/view/screens/primary_screen.dart";
-
+import "package:stadium_project/src/feature/home/view/screens/home_screen.dart";
 
 @immutable
 final class RouterConfigService {
@@ -25,33 +21,14 @@ final class RouterConfigService {
       );
 
   static final GoRouter router = GoRouter(
-    initialLocation: AppRouteNames.explore,
+    initialLocation: AppRouteNames.home,
     debugLogDiagnostics: true,
     routes: <RouteBase>[
-      ShellRoute(
-        builder: (context, state, child) => PrimaryScreen(child),
-        routes: [
-          /// Explore
-          GoRoute(
-            name: "ExploreScreen",
-            path: AppRouteNames.explore,
-            pageBuilder: (BuildContext context, GoRouterState state) => _customNavigatorTransitionAnimation(context, state, const ExploreScreen()),
-          ),
-
-          /// Favourite
-          GoRoute(
-            name: "FavouriteScreen",
-            path: AppRouteNames.favourite,
-            pageBuilder: (BuildContext context, GoRouterState state) => _customNavigatorTransitionAnimation(context, state, const FavouriteScreen()),
-          ),
-
-          /// Account
-          GoRoute(
-            name: "AccountScreen",
-            path: AppRouteNames.account,
-            pageBuilder: (BuildContext context, GoRouterState state) => _customNavigatorTransitionAnimation(context, state, const AccountScreen()),
-          ),
-        ],
+      GoRoute(
+        name: "HomeScreen",
+        path: AppRouteNames.home,
+        pageBuilder: (BuildContext context, GoRouterState state) =>
+            _customNavigatorTransitionAnimation(context, state, const HomeScreen()),
       ),
     ],
   );

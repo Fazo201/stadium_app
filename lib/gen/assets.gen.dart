@@ -15,17 +15,9 @@ import 'package:vector_graphics/vector_graphics.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
-  /// File path: assets/icons/account_bottom_navigation_bar_icon.svg
-  SvgGenImage get accountBottomNavigationBarIcon =>
-      const SvgGenImage('assets/icons/account_bottom_navigation_bar_icon.svg');
-
   /// File path: assets/icons/current_location_icon.svg
   SvgGenImage get currentLocationIcon =>
       const SvgGenImage('assets/icons/current_location_icon.svg');
-
-  /// File path: assets/icons/explore_bottom_navigation_bar_icon.svg
-  SvgGenImage get exploreBottomNavigationBarIcon =>
-      const SvgGenImage('assets/icons/explore_bottom_navigation_bar_icon.svg');
 
   /// File path: assets/icons/explore_list_navigator_icon.svg
   SvgGenImage get exploreListNavigatorIcon =>
@@ -51,26 +43,19 @@ class $AssetsIconsGen {
   SvgGenImage get exploreTabBarMapSelectedIcon =>
       const SvgGenImage('assets/icons/explore_tab_bar_map_selected_icon.svg');
 
-  /// File path: assets/icons/favourite_bottom_navigation_bar_icon.svg
-  SvgGenImage get favouriteBottomNavigationBarIcon => const SvgGenImage(
-      'assets/icons/favourite_bottom_navigation_bar_icon.svg');
-
   /// File path: assets/icons/map_point_icon.svg
   SvgGenImage get mapPointIcon =>
       const SvgGenImage('assets/icons/map_point_icon.svg');
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        accountBottomNavigationBarIcon,
         currentLocationIcon,
-        exploreBottomNavigationBarIcon,
         exploreListNavigatorIcon,
         exploreStadiumIcon,
         exploreTabBarListIcon,
         exploreTabBarListSelectedIcon,
         exploreTabBarMapIcon,
         exploreTabBarMapSelectedIcon,
-        favouriteBottomNavigationBarIcon,
         mapPointIcon
       ];
 }

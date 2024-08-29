@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1023117327100",
+    "project_id": "stadium-app-7dd77",
+    "storage_bucket": "stadium-app-7dd77.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1023117327100:android:060ddde17df03b05a3b579",
+        "android_client_info": {
+          "package_name": "com.fazo.stadium_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmTZT0YuShQB69azUpNgWDaIAXvU_CkAQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

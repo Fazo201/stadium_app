@@ -6,21 +6,21 @@ class StadiumModel {
     final String? name;
     final String? image;
     final String? address;
-    final int? pricePerHour;
-    final double? longitude;
+    final String? pricePerHour;
     final double? latitude;
-    final bool? isAvailable;
-    final int? id;
+    final double? longitude;
+    final String? workingHours;
+    final String? phoneNumber;
 
     StadiumModel({
         this.name,
         this.image,
         this.address,
         this.pricePerHour,
-        this.longitude,
         this.latitude,
-        this.isAvailable,
-        this.id,
+        this.longitude,
+        this.workingHours,
+        this.phoneNumber,
     });
 
     factory StadiumModel.fromJson(Map<String, dynamic> json) => _$StadiumModelFromJson(json);

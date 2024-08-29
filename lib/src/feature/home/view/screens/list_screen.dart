@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:stadium_project/src/feature/explore/view/widgets/custom_explore_list_card_widget.dart';
-import 'package:stadium_project/src/feature/explore/view_model/list_vm.dart';
+import 'package:stadium_project/src/feature/home/view/widgets/custom_explore_list_card_widget.dart';
+import 'package:stadium_project/src/feature/home/view_model/list_vm.dart';
 
 class ListScreen extends ConsumerWidget {
   const ListScreen({super.key});
@@ -25,9 +25,9 @@ class ListScreen extends ConsumerWidget {
             itemBuilder: (BuildContext context, int index) {
               return CustomExploreListCardWidget(
                 stadiumModel: stadiums[index],
-                isAvailableOnPressed: () {},
-                bookNowOnPressed: () {},
-                locationOnPressed: () {},
+                workingHoursPressed: () {},
+                callOnPressed: () {},
+                // locationOnPressed: () {},
               );
             },
             itemCount: stadiums.length,

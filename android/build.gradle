@@ -1,17 +1,17 @@
-buildscript {
-    ext {
-        gradle_version = '8.0.2'
-        kotlin_version = '1.8.0'
-    }
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath "com.android.tools.build:gradle:$gradle_version"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
-}
+// buildscript {
+//     ext {
+//         gradle_version = '8.0.2'
+//         kotlin_version = '1.8.0'
+//     }
+//     repositories {
+//         google()
+//         mavenCentral()
+//     }
+//     dependencies {
+//         classpath "com.android.tools.build:gradle:$gradle_version"
+//         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+//     }
+// }
 
 allprojects {
     repositories {
