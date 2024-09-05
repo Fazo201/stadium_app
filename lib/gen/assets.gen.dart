@@ -63,17 +63,16 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
-  /// File path: assets/images/current_location_navigator_icon.png
-  AssetGenImage get currentLocationNavigatorIcon =>
-      const AssetGenImage('assets/images/current_location_navigator_icon.png');
-
   /// File path: assets/images/map_point_stadium_icon.png
   AssetGenImage get mapPointStadiumIcon =>
       const AssetGenImage('assets/images/map_point_stadium_icon.png');
 
+  /// File path: assets/images/stadium_image.jpg
+  AssetGenImage get stadiumImage =>
+      const AssetGenImage('assets/images/stadium_image.jpg');
+
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [currentLocationNavigatorIcon, mapPointStadiumIcon];
+  List<AssetGenImage> get values => [mapPointStadiumIcon, stadiumImage];
 }
 
 class Assets {
