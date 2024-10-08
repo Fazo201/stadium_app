@@ -16,5 +16,8 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 ![image alt](https://github.com/Fazo201/stadium_app/blob/edc424759358f3b816016c65c0982a7034ced435/screen_shots/light/list.png)
-![image alt](https://github.com/Fazo201/stadium_app/blob/edc424759358f3b816016c65c0982a7034ced435/screen_shots/light/list.png)
-
+![image alt](https://github.com/Fazo201/stadium_app/blob/cdade4fcb72aac105c884d2fa4a366dc538b4953/screen_shots/light/map.png)
+![image alt](https://github.com/Fazo201/stadium_app/blob/cdade4fcb72aac105c884d2fa4a366dc538b4953/screen_shots/light/map1.png)
+![image alt](https://github.com/Fazo201/stadium_app/blob/cdade4fcb72aac105c884d2fa4a366dc538b4953/screen_shots/dark/list.png)
+![image alt](https://github.com/Fazo201/stadium_app/blob/cdade4fcb72aac105c884d2fa4a366dc538b4953/screen_shots/dark/map.png)
+![image alt](https://github.com/Fazo201/stadium_app/blob/cdade4fcb72aac105c884d2fa4a366dc538b4953/screen_shots/dark/map1.png)
