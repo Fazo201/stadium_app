@@ -26,7 +26,7 @@ class ListScreen extends ConsumerWidget {
               return CustomExploreListCardWidget(
                 stadiumModel: stadiums[index],
                 workingHoursPressed: () {},
-                callOnPressed: () {},
+                // callOnPressed: () {},
                 // locationOnPressed: () {},
               );
             },

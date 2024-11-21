@@ -13,13 +13,11 @@ class CustomExploreListCardWidget extends StatelessWidget {
     super.key,
     required this.stadiumModel,
     this.workingHoursPressed,
-    this.callOnPressed,
-    this.locationOnPressed,
+    // this.callOnPressed,
   });
   final StadiumModel? stadiumModel;
   final void Function()? workingHoursPressed;
-  final void Function()? callOnPressed;
-  final void Function()? locationOnPressed;
+  // final void Function()? callOnPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -125,25 +123,31 @@ class CustomExploreListCardWidget extends StatelessWidget {
                             padding: EdgeInsets.zero,
                             elevation: 0,
                             height: 36.h,
-                            shape: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10.r),
-                              borderSide: BorderSide.none,
-                            ),
+                            shape: OutlineInputBorder(borderRadius: BorderRadius.circular(10.r), borderSide: BorderSide.none),
                             child: Text("Qo'ng'iroq", style: const AppTextStyle().bodyMedium?.copyWith(color: AppColors.white)),
                           ),
                         ),
-                        locationOnPressed != null
-                            ? MaterialButton(
-                                onPressed: locationOnPressed,
-                                color: const Color(0xffF7F7F7),
-                                height: 36.h,
-                                minWidth: 36.w,
-                                elevation: 0,
-                                padding: EdgeInsets.zero,
-                                shape: OutlineInputBorder(borderRadius: BorderRadius.circular(10.r), borderSide: BorderSide.none),
-                                child: Assets.icons.exploreListNavigatorIcon.svg(height: 20.h, width: 25.w),
-                              )
-                            : const SizedBox(),
+                        6.horizontalSpace,
+                        MaterialButton(
+                          onPressed: () async {
+                            if (stadiumModel?.latitude != null && stadiumModel?.longitude != null) {
+                              final Uri url = Uri.parse(
+                                  "https://www.google.com/maps/dir/?api=1&destination=${stadiumModel!.latitude},${stadiumModel!.longitude}");
+                              try {
+                                await launchUrl(url, mode: LaunchMode.externalApplication);
+                              } catch (e) {
+                                log('Error launching URL: $url');
+                              }
+                            }
+                          },
+                          color: const Color(0xffF7F7F7),
+                          height: 36.h,
+                          minWidth: 36.h,
+                          elevation: 0,
+                          padding: EdgeInsets.zero,
+                          shape: OutlineInputBorder(borderRadius: BorderRadius.circular(10.r), borderSide: BorderSide.none),
+                          child: Assets.icons.exploreListNavigatorIcon.svg(height: 20.h, width: 25.w),
+                        ),
                       ],
                     ),
                   ],
